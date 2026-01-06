@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Dywan Orientalny</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, serif;
+            color: #333333;
+            line-height: 1.7;
+            background: transparent;
+            padding: 20px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #4a4035;
+            margin: 0 0 24px 0;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf8f5;
+            padding: 16px 18px;
+            border-left: 4px solid #c85a28;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .faq-question:hover {
+            background: #f5f0e8;
+        }
+        
+        .faq-question-text {
+            flex: 1;
+            font-weight: 600;
+            font-size: 16px;
+            color: #4a4035;
+            padding-right: 20px;
+        }
+        
+        .faq-icon {
+            font-size: 24px;
+            font-weight: bold;
+            color: #c85a28;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .faq-icon.active {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            background: #ffffff;
+            border-left: 4px solid #e6dcc8;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 1000px;
+            padding: 16px 18px;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .faq-answer-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666666;
+        }
+        
+        /* Responsywność mobile */
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 0;
+            }
+            
+            .faq-title {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .faq-question {
+                padding: 14px 16px;
+            }
+            
+            .faq-question-text {
+                font-size: 15px;
+            }
+            
+            .faq-answer.active {
+                padding: 14px 16px;
+            }
+            
+            .faq-answer-content {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <h2 class="faq-title">Najczęściej zadawane pytania</h2>
+        
+        <!-- Pytanie 1 -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">Czy dywan nadaje się do ogrzewania podłogowego?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Tak, dywan z polipropylenu jest w pełni kompatybilny z ogrzewaniem podłogowym. Syntetyczne włókno poliestrowe nie blokuje przepływu ciepła i jest odporne na wysokie temperatury. Możesz go bezpiecznie położyć na podłogówce.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pytanie 2 -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">Jak czyścić dywan z polipropylenu?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Czyszczenie jest bardzo proste. Wystarczy regularnie odkurzać dywan (1-2 razy w tygodniu). W przypadku plam - wytrzyj je wilgotną szmatką z odrobiną delikatnego detergentu. Polipropylen odpycha wodę, więc plamy nie wnikają głęboko w włókna.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pytanie 3 -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">Czy dywan elektryzuje się?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Nie, polipropylen jest materiałem antyelektrostatycznym. Dywan nie przyciąga kurzu i nie generuje nieprzyjemnych wyładowań elektrycznych. To idealne rozwiązanie dla alergików.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pytanie 4 -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">Czy mogę prać dywan w pralce?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Nie zalecamy prania dywanu w pralce ze względu na jego rozmiar. Lepiej wyczyścić go mokrą szmatką lub skorzystać z profesjonalnego prania dywanów. Polipropylen szybko schnie i nie chłonie wody, więc czyszczenie na miejscu jest bardzo skuteczne.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pytanie 5 -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">Jak długo służy dywan syntetyczny?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Dywan z polipropylenu przy prawidłowym użytkowaniu może służyć przez wiele lat (5-10 lat lub więcej). Jest bardzo odporny na ścieranie, nie blaknięcie koloru i zachowuje swój wygląd nawet przy intensywnym użytkowaniu.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pytanie 6 -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">Czy krótkie runo jest łatwe w utrzymaniu?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Tak! Krótkie runo (15mm) jest znacznie łatwiejsze w utrzymaniu niż długie. Kurz i brud nie zagnieżdżają się głęboko we włóknach, więc odkurzanie jest szybkie i skuteczne. To idealne rozwiązanie dla osób ceniących praktyczność.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pytanie 7 -->
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span class="faq-question-text">Do jakich wnętrz pasuje dywan orientalny?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Dywan orientalny to uniwersalny element wystroju. Pasuje zarówno do klasycznych wnętrz (salony, jadalnie, gabinety), jak i do nowoczesnych aranżacji jako element kontrastujący. Dodaje elegancji i ciepła każdemu pomieszczeniu.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Funkcja rozwijania/zamykania FAQ
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allIcons = document.querySelectorAll('.faq-icon');
+            
+            // Zamknij wszystkie inne FAQ (opcjonalnie - usuń to jeśli chcesz mieć wiele otwartych)
+            allAnswers.forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                }
+            });
+            allIcons.forEach(item => {
+                if (item !== icon) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle obecnego FAQ
+            answer.classList.toggle('active');
+            icon.classList.toggle('active');
+            
+            // Wysyłamy wysokość do parent window (dla auto-resize iframe)
+            sendHeight();
+        }
+        
+        // Auto-resize iframe - wysyła wysokość do parent window
+        function sendHeight() {
+            const height = document.body.scrollHeight;
+            window.parent.postMessage({
+                type: 'faq-resize',
+                height: height
+            }, '*');
+        }
+        
+        // Wysłanie wysokości przy załadowaniu strony
+        window.addEventListener('load', sendHeight);
+        
+        // Wysłanie wysokości przy zmianie rozmiaru okna
+        window.addEventListener('resize', sendHeight);
+    </script>
+</body>
+</html>
